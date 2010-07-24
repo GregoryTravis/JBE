@@ -1,0 +1,5 @@
+fft.obj
+fft.dll
+NUL
+  KERNEL32.LIB GDI32.LIB USER32.LIB 
+fft.def

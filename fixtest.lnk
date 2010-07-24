@@ -1,0 +1,5 @@
+fixtest.OBJ
+fixtest.EXE
+NUL
+  KERNEL32.LIB GDI32.LIB USER32.LIB
+fixtest.def
