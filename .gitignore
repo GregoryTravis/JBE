@@ -2,3 +2,10 @@
 *.obj
 *.LIB
 *.dll
+*.EXE
+*.wav
+*.jbe
+go
+misc
+todo.txt
+notes.txt
