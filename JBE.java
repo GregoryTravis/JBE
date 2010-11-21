@@ -241,7 +241,7 @@ public class JBE extends JPanel implements Runnable, LooperListener
                 movingDX = mousex-movingSegment.getStartMark().getScreen();
                 movingDY = mousey-centerOfRow( whichRow() );
                 movingStartX = mousex;
-                movingStartTime = System.currentTimeMillis();
+                movingStartTime = (int) System.currentTimeMillis();
               }
             } else if (nt instanceof JBE) {
               // moving background
@@ -1162,10 +1162,11 @@ System.out.println( "Moving by "+movingDX );
 
     Sound s = null;
 
+    int gap = auditionGap ? auditionBlankLenS : 0;
+
     if (audition) {
       Segment seg = getSingleSelectedSegment();
       if (seg != null) {
-        int gap = auditionGap ? auditionBlankLenS : 0;
         SoundAccumulator sa =
           new SoundAccumulator( soundRenderer, seg.getStartMoment(),
             seg.getEndMoment()+gap );
@@ -1174,7 +1175,7 @@ System.out.println( "Moving by "+movingDX );
       }
     } else {
       SoundAccumulator sa =
-       new SoundAccumulator( soundRenderer, loopLeftMoment, loopRightMoment );
+       new SoundAccumulator( soundRenderer, loopLeftMoment, loopRightMoment + gap );
       for (int i=0; i<segments.size(); ++i) {
         Segment segment = (Segment)segments.elementAt( i );
         if (!segment.getMuted())
