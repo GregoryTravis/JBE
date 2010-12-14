@@ -4,6 +4,8 @@ import java.io.*;
 
 public class Clik
 {
+  static private String cliksdir = "/User/gmt/proj/jbe";
+
   static public Sound generate( double bpm, int measures, int timeSigNum,
       int subdiv ) {
     int length =
@@ -13,9 +15,9 @@ public class Clik
     Sound lo = null, hi = null, first = null;
 
     try {
-      lo = SoundCache.load( "loclik.wav" );
-      hi = SoundCache.load( "hiclik.wav" );
-      first = SoundCache.load( "firstclik.wav" );
+      lo = SoundCache.load( cliksdir + "/loclik.wav" );
+      hi = SoundCache.load( cliksdir + "/hiclik.wav" );
+      first = SoundCache.load( cliksdir + "/firstclik.wav" );
     } catch( IOException ie ) {
       System.out.println( "Can't load cliks." );
     }
