@@ -258,6 +258,8 @@ public class Keys
     keyCodes.put( ".", new Integer( 46 ) );
     keyCodes.put( "/", new Integer( 47 ) );
     keyCodes.put( " ", new Integer( 32 ) );
+    keyCodes.put( "-", new Integer( 45 ) );
+    keyCodes.put( "=", new Integer( 61 ) );
 
     ignores[16] = true;
     ignores[17] = true;

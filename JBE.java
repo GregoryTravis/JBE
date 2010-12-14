@@ -192,6 +192,8 @@ public class JBE extends JPanel implements Runnable, LooperListener
     keys.add( "[o]", "nextSoundAndSameSize" );
     keys.add( "[^]", "halveLoop" );
     keys.add( "[&]", "doubleLoop" );
+    keys.add( "[-]", "backwardLoop" );
+    keys.add( "[=]", "forwardLoop" );
     //keys.add( "[%]", "replaceRowWithRendering" );
     keys.add( "[)]", "deleteRow" );
   }
@@ -2203,6 +2205,27 @@ ie.printStackTrace();
 
   public void halveLoop() {
     scaleLoop( 0.5 );
+  }
+
+  public void forwardLoop() {
+    forwardLoop(1.0);
+  }
+
+  public void backwardLoop() {
+    forwardLoop(-1.0);
+  }
+
+  public double interp(double x0, double x1, double t) {
+    return x0 + t * (x1 - x0);
+  }
+
+  public void forwardLoop(double t) {
+    undoSaveChange();
+    int lm = loopLeftMoment;
+    int rm = loopRightMoment;
+    int nlm = rm;
+    int nrm = rm + (rm - lm);
+    setLoop((int) interp(lm, nlm, t), (int) interp(rm, nrm, t));
   }
 
   private void scaleLoop( double scale ) {
