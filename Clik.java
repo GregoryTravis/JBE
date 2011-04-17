@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Clik
 {
-  static private String cliksdir = "/User/gmt/proj/jbe";
+  static private String cliksdir = "/Users/gmt/proj/jbe";
 
   static public Sound generate( double bpm, int measures, int timeSigNum,
       int subdiv ) {
