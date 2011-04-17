@@ -34,6 +34,7 @@ public class JBE extends JPanel implements Runnable, LooperListener
   private boolean snapping = true;
 
   private boolean audition = false;
+  private boolean pause = false;
   private boolean auditionGap = false;
   static private final double maxAuditionLength = 4.0;
   static private final int maxAuditionSamples =
@@ -196,6 +197,7 @@ public class JBE extends JPanel implements Runnable, LooperListener
     keys.add( "[=]", "forwardLoop" );
     //keys.add( "[%]", "replaceRowWithRendering" );
     keys.add( "[)]", "deleteRow" );
+    keys.add( "[:]", "flipPause" );
   }
 
   private void setFrame( Frame frame ) {
@@ -1166,7 +1168,11 @@ System.out.println( "Moving by "+movingDX );
 
     int gap = auditionGap ? auditionBlankLenS : 0;
 
-    if (audition) {
+    if (pause) {
+      SoundAccumulator sa =
+          new SoundAccumulator( soundRenderer, loopLeftMoment, loopRightMoment + gap );
+      s = sa.getSound();
+    } else if (audition) {
       Segment seg = getSingleSelectedSegment();
       if (seg != null) {
         SoundAccumulator sa =
@@ -2251,8 +2257,14 @@ ie.printStackTrace();
     updateSound();
   }
 
+
   public void flipAuditionGap() {
     auditionGap = !auditionGap;
+    updateSound();
+  }
+
+  public void flipPause() {
+    pause = !pause;
     updateSound();
   }
 
