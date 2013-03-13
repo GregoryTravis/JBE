@@ -112,6 +112,7 @@ public class JBE extends JPanel implements Runnable, LooperListener
     keys = new Keys( this );
 
     keys.add( "[%32]", "pageForward" );
+    keys.add( "\\s[%32]", "pageBackward" );
     keys.add( "\\c[s]", "makeClean" );
     keys.add( "\\c[x]", "deleteSegment" );
     keys.add( "[s] [s]", "saveSegment" );
@@ -1333,6 +1334,7 @@ System.out.println( "Moving by "+movingDX );
   private void drawGroove( Graphics g ) {
     int moments[] = groove.moments();
     for (int i=0; i<moments.length; ++i) {
+        boolean wide = (i%4) == 0;
       int ya = moments.length/measures;
       int l=0;
       while (l<grooveColors.length) {
@@ -1346,6 +1348,10 @@ System.out.println( "Moving by "+movingDX );
       g.setColor( grooveColors[l] );
       int x = momentToScreen( moments[i] );
       g.drawLine( x, 0, x, ht-1 );
+      if (wide) {
+      g.drawLine( x-1, 0, x-1, ht-1 );
+      g.drawLine( x+1, 0, x+1, ht-1 );
+      }
     }
   }
 
@@ -2416,11 +2422,19 @@ ie.printStackTrace();
   }
 
   public void pageForward() {
+      page(1);
+  }
+
+  public void pageBackward() {
+      page(-1);
+  }
+
+  public void page(int way) {
     Segment s = getContainingSegment();
     if (s != null) {
       undoSaveChange();
       int loopWidth = loopRightMoment - loopLeftMoment;
-      s.slideToMoment( s.getStartMark().getMoment() - loopWidth );
+      s.slideToMoment( s.getStartMark().getMoment() - (way * loopWidth) );
       updateSound();
     }
   }
