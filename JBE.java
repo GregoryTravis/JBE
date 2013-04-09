@@ -150,6 +150,7 @@ public class JBE extends JPanel implements Runnable, LooperListener
     //keys.add( "[V]", "changeMeasures" );
     //keys.add( "[B]", "setBPM" );
     //keys.add( "[D]", "deleteSegment" );
+    keys.add( "[d]", "dumpInfo" );
     keys.add( "[M]", "muteSegment" );
     keys.add( "[4]", "muteRow" );
     keys.add( "[5]", "unMuteRow" );
@@ -2438,4 +2439,11 @@ ie.printStackTrace();
       updateSound();
     }
   }
+
+    public void dumpInfo() {
+        System.err.println("BPM " + bpm);
+        System.err.println("measures " + measures);
+        System.err.println("timeSigNum " + timeSigNum);
+        System.err.println("loop " + loopLeftMoment + " " + loopRightMoment);
+    }
 }
