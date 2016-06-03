@@ -200,6 +200,7 @@ public class JBE extends JPanel implements Runnable, LooperListener
     //keys.add( "[%]", "replaceRowWithRendering" );
     keys.add( "[)]", "deleteRow" );
     keys.add( "[:]", "flipPause" );
+    keys.add( "\\c[m]", "moveSegmentToSecond" );
   }
 
   private void setFrame( Frame frame ) {
@@ -2437,6 +2438,18 @@ ie.printStackTrace();
       int loopWidth = loopRightMoment - loopLeftMoment;
       s.slideToMoment( s.getStartMark().getMoment() - (way * loopWidth) );
       updateSound();
+    }
+  }
+
+  public void moveSegmentToSecond() {
+    Segment s = getSingleSelectedSegment();
+    if (s != null) {
+      undoSaveChange();
+      double seconds = InputString.readDouble( this );
+      s.slideToMoment((int)(-seconds * Constants.sampRate));
+      updateSound();
+    } else {
+      System.err.println("No segment selected.");
     }
   }
 
