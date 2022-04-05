@@ -2,7 +2,7 @@
 
 // DIV IS WRONG
 
-#define USE_FIX 1
+#define USE_FIX 0
 
 #define fix_print(f) printf( "%f", fix_float(f) )
 #define fix_sq(f) (fix_mul((f),(f)))
