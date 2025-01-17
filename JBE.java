@@ -68,6 +68,8 @@ public class JBE extends JPanel implements Runnable, LooperListener
   // moving all
   private boolean movingAll = false;
   private int movingAllMoment;
+  // Trackpad
+  private int trackpadSensitivity = 12;
 
   private int grooveColorLevels[] = { 255, 240, 225, 210, 195, 180 };
   private Color grooveColors[] = new Color[grooveColorLevels.length];
@@ -215,6 +217,15 @@ public class JBE extends JPanel implements Runnable, LooperListener
   }
 
   private void addListeners() {
+    addMouseWheelListener(new MouseWheelListener() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent event) {
+              int movingAllMoment = screenToMoment( mousex );
+              int newx = mousex - ((int)(trackpadSensitivity * event.getPreciseWheelRotation()));
+              slideMomentToScreen( movingAllMoment, newx );
+            }
+        });
+
     addMouseListener( new MouseListener() {
       public void mousePressed( MouseEvent me ) {
         mousex = me.getX();
