@@ -169,14 +169,14 @@ public class Keys
 
   private int toKeyCode( KeyEvent ke ) {
     int keyCode = ke.getKeyCode();
-    int mods = ke.getModifiers();
-    if ((mods & KeyEvent.ALT_MASK) == KeyEvent.ALT_MASK) {
+    int mods = ke.getModifiersEx();
+    if ((mods & KeyEvent.ALT_DOWN_MASK) == KeyEvent.ALT_DOWN_MASK) {
       keyCode |= ALT;
     }
-    if ((mods & KeyEvent.CTRL_MASK) == KeyEvent.CTRL_MASK) {
+    if ((mods & KeyEvent.CTRL_DOWN_MASK) == KeyEvent.CTRL_DOWN_MASK) {
       keyCode |= CTRL;
     }
-    if ((mods & KeyEvent.SHIFT_MASK) == KeyEvent.SHIFT_MASK) {
+    if ((mods & KeyEvent.SHIFT_DOWN_MASK) == KeyEvent.SHIFT_DOWN_MASK) {
       keyCode |= SHIFT;
     }
     return keyCode;

@@ -5,7 +5,7 @@ public class PlugInUtils
   static public PlugIn getPlugIn( String name ) {
     try {
       Class clasz = Class.forName( name );
-      PlugIn pi = (PlugIn)clasz.newInstance();
+      PlugIn pi = (PlugIn)clasz.getDeclaredConstructor().newInstance();
       return pi;
     } catch( Exception e ) {
       return null;

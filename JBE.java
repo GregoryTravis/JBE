@@ -231,10 +231,10 @@ public class JBE extends JPanel implements Runnable, LooperListener
         mousex = me.getX();
         mousey = me.getY();
 
-        int mods = me.getModifiers() | me.getModifiers();
-        boolean alt = (mods&InputEvent.ALT_MASK)==InputEvent.ALT_MASK;
-        boolean control = (mods&InputEvent.CTRL_MASK)==InputEvent.CTRL_MASK;
-        boolean shift = (mods&InputEvent.SHIFT_MASK)==InputEvent.SHIFT_MASK;
+        int mods = me.getModifiersEx() | me.getModifiersEx();
+        boolean alt = (mods&InputEvent.ALT_DOWN_MASK)==InputEvent.ALT_DOWN_MASK;
+        boolean control = (mods&InputEvent.CTRL_DOWN_MASK)==InputEvent.CTRL_DOWN_MASK;
+        boolean shift = (mods&InputEvent.SHIFT_DOWN_MASK)==InputEvent.SHIFT_DOWN_MASK;
 
         System.out.println( alt+" "+control+" "+shift );
 
