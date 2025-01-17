@@ -707,11 +707,11 @@ System.out.println( "Moving by "+movingDX );
     JBE jbe = new JBE();
 
     Frame frame = new Frame( "JBE" );
-    frame.setSize( 900, 400 );
+    frame.setSize( 1600, 1000 );
     frame.setLayout( new BorderLayout() );
     frame.add( "Center", jbe );
     frame.setVisible( true );
-    frame.setLocation( 100, 100 );
+    frame.setLocation( 40, 40 );
     jbe.setFrame( frame );
 
     try {
