@@ -66,9 +66,9 @@ if (wv>1.0 || wv<-1.0)
 
   static public void main( String args[] ) throws Exception {
     String infile = args[0];
-    double scale = new Double( args[1] ).doubleValue();
+    double scale = Double.parseDouble( args[1] );
     String outfile = args[2];
-    int windowLen = new Integer( args[3] ).intValue();
+    int windowLen = Integer.parseInt( args[3] );
 
     Sound sound = new Sound( infile );
     int newlen = (int)(sound.length()*scale);

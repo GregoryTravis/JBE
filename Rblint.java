@@ -45,7 +45,7 @@ for (int oi=startoi; oi<=endoi; ++oi) {
 
   static public void main( String args[] ) throws Exception {
     Sound sound = new Sound( args[0] );
-    double scale = new Double( args[1] ).doubleValue();
+    double scale = Double.parseDouble( args[1] );
 
     Signal signal = SoundSignal.convert( sound );
     Signal nsignal = Rblint( signal, (int)(signal.length()*scale) );

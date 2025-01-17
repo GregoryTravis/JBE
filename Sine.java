@@ -20,9 +20,9 @@ public class Sine
 
   static public void main( String args[] ) throws Exception {
     String outfile = args[0];
-    int len = new Integer( args[1] ).intValue();
-    double frequency = new Double( args[2] ).doubleValue();
-    double phase = new Double( args[3] ).doubleValue();
+    int len = Integer.parseInt( args[1] );
+    double frequency = Double.parseDouble( args[2] );
+    double phase = Double.parseDouble( args[3] );
 
     Sound dc = sine( len, frequency, phase );
     dc.saveTo( outfile );

@@ -35,7 +35,7 @@ System.out.println( "nshint "+sound.length()+" --> "+newlen );
 
   static public void main( String args[] ) throws Exception {
     String infile = args[0];
-    double scale = new Double( args[1] ).doubleValue();
+    double scale = Double.parseDouble( args[1] );
     String outfile = args[2];
     int ntimes = args.length == 3 ? 1 : Integer.parseInt( args[3] );
 

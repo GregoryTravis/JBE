@@ -543,12 +543,12 @@ System.out.println( "Moving by "+movingDX );
       if (m.isSticky()) {
         int mm = m.getMoment();
         double relative = (double)(mm-loopLeftMoment)/(loopRightMoment-loopLeftMoment);
-        stickyPositions.put( m, new Double( relative ) );
+        stickyPositions.put( m, relative );
       }
       Mark om = m.getOtherSide();
       if (!om.isSticky()) {
         int length = om.getMoment() - m.getMoment();
-        stickyLengths.put( m, new Integer( length ) );
+        stickyLengths.put( m, length );
       }
     }
   }

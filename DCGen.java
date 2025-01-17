@@ -12,7 +12,7 @@ public class DCGen
 
   static public void main( String args[] ) throws Exception {
     String outfile = args[0];
-    int len = new Integer( args[1] ).intValue();
+    int len = Integer.parseInt( args[1] );
 
     Sound dc = dcgen( len );
     dc.saveTo( outfile );

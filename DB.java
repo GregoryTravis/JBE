@@ -37,22 +37,22 @@ public class DB
 
   public void put( String key, int value ) {
     verifyHash();
-    hashtable.put( key, new Integer( value ) );
+    hashtable.put( key, value );
   }
 
   public void put( String key, float value ) {
     verifyHash();
-    hashtable.put( key, new Float( value ) );
+    hashtable.put( key, value );
   }
 
   public void put( String key, double value ) {
     verifyHash();
-    hashtable.put( key, new Double( value ) );
+    hashtable.put( key, value );
   }
 
   public void put( String key, boolean value ) {
     verifyHash();
-    hashtable.put( key, new Boolean( value ) );
+    hashtable.put( key, value );
   }
 
   public void put( String key, byte ba[] ) {
@@ -151,25 +151,25 @@ public class DB
   public void put( int index, int value ) {
     verifyVector();
     ensureRoom( index );
-    vector.setElementAt( new Integer( value ), index );
+    vector.setElementAt( value, index );
   }
 
   public void put( int index, float value ) {
     verifyVector();
     ensureRoom( index );
-    vector.setElementAt( new Float( value ), index );
+    vector.setElementAt( value, index );
   }
 
   public void put( int index, double value ) {
     verifyVector();
     ensureRoom( index );
-    vector.setElementAt( new Double( value ), index );
+    vector.setElementAt( value, index );
   }
 
   public void put( int index, boolean value ) {
     verifyVector();
     ensureRoom( index );
-    vector.setElementAt( new Boolean( value ), index );
+    vector.setElementAt( value, index );
   }
 
   public void put( int index, byte ba[] ) {
@@ -401,19 +401,19 @@ public class DB
     switch( type ) {
       case INT:
         int i = din.readInt();
-        return new Integer( i );
+        return i;
         /* break; */
       case FLOAT:
         float f = din.readFloat();
-        return new Float( f );
+        return f;
         /* break; */
       case DOUBLE:
         double d = din.readDouble();
-        return new Double( d );
+        return d;
         /* break; */
       case BOOLEAN:
         boolean b = din.readBoolean();
-        return new Boolean( b );
+        return b;
         /* break; */
       case STRING:
         return din.readUTF();

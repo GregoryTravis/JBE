@@ -20,7 +20,7 @@ public class Divide
 
   static public void main( String args[] ) throws Exception {
     String rf = args[0], af = args[1], bf = args[2];
-    double unit = new Double( args[3] ).doubleValue();
+    double unit = Double.parseDouble( args[3] );
     Sound as = new Sound( af );
     Sound bs = new Sound( bf );
     Sound rs = divide( as, bs, unit );

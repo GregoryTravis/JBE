@@ -23,7 +23,7 @@ if ((nt%16384)==0) System.out.println( nt+" of "+newlen );
 
   static public void main( String args[] ) throws Exception {
     Sound sound = new Sound( args[0] );
-    double scale = new Double( args[1] ).doubleValue();
+    double scale = Double.parseDouble( args[1] );
 
     Signal signal = SoundSignal.convert( sound );
     Signal nsignal = shint( signal, (int)(signal.length()*scale) );

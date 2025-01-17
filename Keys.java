@@ -237,29 +237,29 @@ public class Keys
     for (int i=0; i<10; ++i) {
       String keyName = ""+(char)(i+'0');
       int code = i+48;
-      keyCodes.put( keyName, new Integer( code ) );
+      keyCodes.put( keyName, code );
     }
 
     for (int i=0; i<26; ++i) {
       String keyName = ""+(char)(i+'a');
       int code = i+65;
-      keyCodes.put( keyName, new Integer( code ) );
+      keyCodes.put( keyName, code );
     }
 
-    keyCodes.put( "-", new Integer( 45 ) );
-    keyCodes.put( "+", new Integer( 61 ) );
-    keyCodes.put( "|", new Integer( 92 ) );
-    keyCodes.put( "lsqb", new Integer( 91 ) );
-    keyCodes.put( "rsqb", new Integer( 93 ) );
-    keyCodes.put( "~", new Integer( 192 ) );
-    keyCodes.put( ";", new Integer( 59 ) );
-    keyCodes.put( "'", new Integer( 222 ) );
-    keyCodes.put( ",", new Integer( 44 ) );
-    keyCodes.put( ".", new Integer( 46 ) );
-    keyCodes.put( "/", new Integer( 47 ) );
-    keyCodes.put( " ", new Integer( 32 ) );
-    keyCodes.put( "-", new Integer( 45 ) );
-    keyCodes.put( "=", new Integer( 61 ) );
+    keyCodes.put( "-", 45 );
+    keyCodes.put( "+", 61 );
+    keyCodes.put( "|", 92 );
+    keyCodes.put( "lsqb", 91 );
+    keyCodes.put( "rsqb", 93 );
+    keyCodes.put( "~", 192 );
+    keyCodes.put( ";", 59 );
+    keyCodes.put( "'", 222 );
+    keyCodes.put( ",", 44 );
+    keyCodes.put( ".", 46 );
+    keyCodes.put( "/", 47 );
+    keyCodes.put( " ", 32 );
+    keyCodes.put( "-", 45 );
+    keyCodes.put( "=", 61 );
 
     ignores[16] = true;
     ignores[17] = true;
